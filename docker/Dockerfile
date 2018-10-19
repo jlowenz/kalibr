@@ -78,6 +78,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && \
 	  apt-get -y install \
     python-wxgtk2.8
 
+RUN apt-get -y update && apt-get -y upgrade && apt-get -y install python-pyx
+
 # COMPONENT: :user-entry / 1.0
 ADD user_entrypoint.sh /usr/bin/user_entrypoint.sh
 ENTRYPOINT ["/usr/bin/user_entrypoint.sh"]

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BASE_CODE=$HOME/dev
-DATA_DIR=/home/data/jlowens
+DATA_DIR=/home/jlowens/data/
 
 #DOCKER_IP=$(ifconfig docker0 | grep 'inet addr' | sed -re's/.*inet addr:([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}).*/\1/')
 
@@ -18,6 +18,7 @@ nvidia-docker run --rm \
 			        -v $HOME/.ros:/home/user/.ros \
               -v $HOME/.rosconsole:/home/user/.rosconsole \
               -v $HOME/Documents:/home/user/Documents \
+              -v $DATA_DIR:/home/user/data \
 	            -e LOCAL_USER_ID=$(id -u) \
 	            -e LOCAL_GROUP_ID=$(id -g) \
 	            -e DISPLAY=unix$DISPLAY \
